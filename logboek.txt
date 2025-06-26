@@ -1,0 +1,11 @@
+commit b973503f5514e1f9f0c244451b1900f57a55b7eb
+Author: xingmyg <xingmyg@seven.localdomain>
+Date:   Wed Jun 25 11:58:58 2025 +0200
+
+    Devops mastermind
+
+commit d8d7aa7efcbdb8895be89d934148395bc50cfc20
+Author: xing <1213099@student.roc-nijmegen.nl>
+Date:   Wed Jun 25 11:22:40 2025 +0200
+
+    Initial commit
