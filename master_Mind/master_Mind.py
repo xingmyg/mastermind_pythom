@@ -1,16 +1,17 @@
-# MasterMiimport random
+# MasterMind
 # by ICTROCN
 # v1.01qw		qq12
 # 15-8-2024
 # Last mod by DevJan : added loop for replay
-print("MasterMind")
 
 import random
+
+print("MasterMind")
 
 VALID_COLORS = ['red', 'blue', 'yellow', 'green', 'purple', 'orange']
 
 def generate_code():
-    return [random.choice(colors) for _ in range(4)]
+    return [random.choice(VALID_COLORS) for _ in range(4)]
 
 def get_feedback(secret, guess):
     guess = [color.lower() for color in guess]
@@ -19,24 +20,20 @@ def get_feedback(secret, guess):
     secret_counts = {}
     guess_counts = {}
 
+    for s, g in zip(secret, guess):
+        if s != g:
+            secret_counts[s] = secret_counts.get(s, 0) + 1
+            guess_counts[g] = guess_counts.get(g, 0) + 1
+
+ white_pegs = sum(min(secret_counts.get(color, 0), guess_counts.get(color, 0)) for color in guess_counts)
+    return black_pegs, white_pegs
+
 def is_admin():
     password = input("Enter admin password: ")
     return password == "letmein123"
 
 def show_secret(code):
     print("Admin-only: The secret code is:", ' '.join(code))
-
-    # Count whites by subtracting black and calculating min digit frequency match
-    secret_Code = generate_Code()
-    attempts = 10
-
-    for s, g in zip(secret, guess):
-        if s != g:
-            secret_counts[s] = secret_counts.get(s, 0) + 1
-            guess_counts[g] = guess_counts.get(g, 0) + 1
-
-    white_pegs = sum(min(secret_counts.get(color, 0), guess_counts.get(color, 0)) for color in guess_counts)
-    return black_pegs, white_pegs
 
 def play_Mastermind():
     print("Welcome to Mastermind!")
